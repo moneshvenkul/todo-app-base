@@ -29,31 +29,38 @@ export const TodoListItem: React.FC<TodoListItemProps> = ({
     };
     
     return (
-    <li>
-    {isEditing ? (
-    <form onSubmit={handleEditSubmit}>
-    <input
-             type="text"
-             value={editedText}
-             onChange={handleEditChange}
-           />
-    <button type="submit">Save</button>
-    <button onClick={() => setIsEditing(false)}>Cancel</button>
-    </form>
-    ) : (
-    <>
-    <label className={todo.complete ? "complete" : undefined}>
-    <input
-    type="checkbox"
-    onChange={() => toggleComplete(todo)}
-    checked={todo.complete}
-    />
-    {todo.text}
-    </label>
-    <button onClick={() => setIsEditing(true)}>Edit</button>
-    <button onClick={() => removeTodo(todo)}>Delete</button>
-    </>
-    )}
+      <li className="todo-item">
+      <label className={todo.complete ? "complete" : undefined}>
+        <input
+          type="checkbox"
+          onChange={() => toggleComplete(todo)}
+          checked={todo.complete}
+        />
+        {isEditing ? (
+          <input
+            type="text"
+            value={editedText}
+            onChange={handleEditChange}
+            className="todo-text"
+          />
+        ) : (
+          <span className="todo-text">{todo.text}</span>
+        )}
+      </label>
+      <div className="todo-actions">
+        <button
+          className="todo-button edit-button"
+          onClick={() => setIsEditing(!isEditing)}
+        >
+          {isEditing ? "Save" : "Edit"}
+        </button>
+        <button
+          className="todo-button delete-button"
+          onClick={() => removeTodo(todo)}
+        >
+          Delete
+        </button>
+      </div>
     </li>
-    );
-    };
+  );
+};

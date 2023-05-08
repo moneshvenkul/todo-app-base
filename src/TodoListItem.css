@@ -87,3 +87,42 @@ button.cancel {
 button.cancel:hover {
   background-color: #da190b;
 }
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-text {
+  display: inline;
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.todo-actions {
+  display: flex;
+  align-items: center;
+}
+
+.todo-button {
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.todo-button:hover {
+  color: #888;
+}
+
+.edit-button {
+  color: #4caf50;
+  margin-right: 10px;
+}
+
+.delete-button {
+  color: #f44336;
+}
+
