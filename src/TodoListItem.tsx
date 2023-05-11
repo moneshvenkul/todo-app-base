@@ -44,7 +44,7 @@ export const TodoListItem: React.FC<TodoListItemProps> = ({
             className="todo-text"
           />
         ) : (
-          <span className="todo-text">{todo.text}</span>
+          <span className="todo-text">{editedText}</span>
         )}
       </label>
       <div className="todo-actions">
